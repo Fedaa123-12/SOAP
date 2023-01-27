@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://controllers" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://controllers" xmlns:intf="http://controllers" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://controllers" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="updateMovie">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="title" type="xsd:string"/>
+      <element name="year" type="xsd:int"/>
+      <element name="director" type="xsd:string"/>
+      <element name="stars" type="xsd:string"/>
+      <element name="review" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="updateMovieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteMovie">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteMovieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllFilmData">
+    <complexType>
+     <sequence>
+      <element name="format" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAllFilmDataResponse">
+    <complexType>
+     <sequence>
+      <element name="getAllFilmDataReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchFilmByInput">
+    <complexType>
+     <sequence>
+      <element name="format" type="xsd:string"/>
+      <element name="searchBy" type="xsd:string"/>
+      <element name="input" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="searchFilmByInputResponse">
+    <complexType>
+     <sequence>
+      <element name="searchFilmByInputReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertAMovie">
+    <complexType>
+     <sequence>
+      <element name="title" type="xsd:string"/>
+      <element name="year" type="xsd:int"/>
+      <element name="director" type="xsd:string"/>
+      <element name="stars" type="xsd:string"/>
+      <element name="review" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertAMovieResponse">
+    <complexType>
+     <sequence>
+      <element name="insertAMovieReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="searchFilmByInputRequest">
+
+      <wsdl:part element="impl:searchFilmByInput" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteMovieResponse">
+
+      <wsdl:part element="impl:deleteMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAMovieRequest">
+
+      <wsdl:part element="impl:insertAMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateMovieResponse">
+
+      <wsdl:part element="impl:updateMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllFilmDataRequest">
+
+      <wsdl:part element="impl:getAllFilmData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="searchFilmByInputResponse">
+
+      <wsdl:part element="impl:searchFilmByInputResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteMovieRequest">
+
+      <wsdl:part element="impl:deleteMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAllFilmDataResponse">
+
+      <wsdl:part element="impl:getAllFilmDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateMovieRequest">
+
+      <wsdl:part element="impl:updateMovie" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAMovieResponse">
+
+      <wsdl:part element="impl:insertAMovieResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="filmController">
+
+      <wsdl:operation name="updateMovie">
+
+         <wsdl:input message="impl:updateMovieRequest" name="updateMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateMovieResponse" name="updateMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteMovie">
+
+         <wsdl:input message="impl:deleteMovieRequest" name="deleteMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteMovieResponse" name="deleteMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllFilmData">
+
+         <wsdl:input message="impl:getAllFilmDataRequest" name="getAllFilmDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAllFilmDataResponse" name="getAllFilmDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchFilmByInput">
+
+         <wsdl:input message="impl:searchFilmByInputRequest" name="searchFilmByInputRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:searchFilmByInputResponse" name="searchFilmByInputResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertAMovie">
+
+         <wsdl:input message="impl:insertAMovieRequest" name="insertAMovieRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertAMovieResponse" name="insertAMovieResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="filmControllerSoapBinding" type="impl:filmController">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="updateMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAllFilmData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAllFilmDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAllFilmDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="searchFilmByInput">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="searchFilmByInputRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="searchFilmByInputResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertAMovie">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertAMovieRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertAMovieResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="filmControllerService">
+
+      <wsdl:port binding="impl:filmControllerSoapBinding" name="filmController">
+
+         <wsdlsoap:address location="http://localhost:8080/SoapService/services/filmController"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

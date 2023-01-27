@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from filmControllerService WSDL service -->
+
+  <service name="filmController" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://controllers"/>
+      <parameter name="wsdlServiceElement" value="filmControllerService"/>
+      <parameter name="schemaQualified" value="http://controllers"/>
+      <parameter name="wsdlServicePort" value="filmController"/>
+      <parameter name="className" value="controllers.filmController"/>
+      <parameter name="wsdlPortType" value="filmController"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://controllers" xmlns:retNS="http://controllers" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateMovie" qname="operNS:updateMovie" returnQName="retNS:updateMovieReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:title" type="tns:string"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:year" type="tns:int"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:director" type="tns:string"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:stars" type="tns:string"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:review" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controllers" xmlns:retNS="http://controllers" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="deleteMovie" qname="operNS:deleteMovie" returnQName="retNS:deleteMovieReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://controllers" xmlns:retNS="http://controllers" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getAllFilmData" qname="operNS:getAllFilmData" returnQName="retNS:getAllFilmDataReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:format" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controllers" xmlns:retNS="http://controllers" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchFilmByInput" qname="operNS:searchFilmByInput" returnQName="retNS:searchFilmByInputReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:format" type="tns:string"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:searchBy" type="tns:string"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:input" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://controllers" xmlns:retNS="http://controllers" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="insertAMovie" qname="operNS:insertAMovie" returnQName="retNS:insertAMovieReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:title" type="tns:string"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:year" type="tns:int"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:director" type="tns:string"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:stars" type="tns:string"/>
+        <parameter xmlns:pns="http://controllers" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:review" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="updateMovie deleteMovie searchFilmByInput insertAMovie getAllFilmData"/>
+
+  </service>
+</deployment>
